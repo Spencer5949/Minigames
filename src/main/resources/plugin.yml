@@ -1,0 +1,14 @@
+name: Minigames
+version: ${project.version}
+main: me.spencer5949.minigames.Minigames
+api-version: 1.13
+authors: [Spencer5949]
+description: Custom minigames plugin by Spencer5949#6603
+website: https://discord.gg/Ha9FvrK
+commands:
+  minigames:
+    description: Use this command to open the GUI to create minigames.
+    aliases: minigame
+  minigame create:
+    description: Use this command to open the GUI to create minigames.
+    usage: /minigames create
