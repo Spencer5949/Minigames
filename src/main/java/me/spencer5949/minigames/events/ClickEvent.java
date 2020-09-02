@@ -13,7 +13,6 @@ public class ClickEvent implements Listener {
     public void clickEvent(InventoryClickEvent e) {
 
         Player player = (Player) e.getWhoClicked();
-
         if (e.getView().getTitle().startsWith("" + ChatColor.DARK_AQUA + ChatColor.BOLD + "Select Minigame to create")) {
 
             switch (e.getCurrentItem().getType()) {
@@ -24,6 +23,8 @@ public class ClickEvent implements Listener {
 
 
                 case DIAMOND_SWORD:
+                    player.closeInventory();
+                    GameCreator.Siege(player);
 
                 case LIME_WOOL:
 

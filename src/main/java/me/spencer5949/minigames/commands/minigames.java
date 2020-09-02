@@ -1,5 +1,6 @@
 package me.spencer5949.minigames.commands;
 
+import com.sun.tools.javac.jvm.Items;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -30,6 +31,7 @@ public class minigames implements CommandExecutor {
                     ItemStack CaptureTheFlag = new ItemStack(Material.LIME_WOOL);
                     ItemStack HungerGames = new ItemStack(Material.IRON_SWORD);
                     ItemStack TntRun = new ItemStack(Material.TNT);
+                    ItemStack Boom = new ItemStack(Material.LINGERING_POTION);
 
                     ItemMeta FloorIsLava_meta = FloorIsLava.getItemMeta();
                     FloorIsLava_meta.setDisplayName("" + ChatColor.DARK_RED + ChatColor.BOLD + "The Floor Is Lava");
@@ -76,7 +78,14 @@ public class minigames implements CommandExecutor {
                     TntRun_meta.setLore(TntRun_lore);
                     TntRun.setItemMeta(TntRun_meta);
 
-                    ItemStack[] menu_items = {FloorIsLava, Siege, CaptureTheFlag, HungerGames, TntRun};
+                    ItemMeta Boom_meta = Boom.getItemMeta();
+                    Boom_meta.setDisplayName("" + ChatColor.DARK_RED + ChatColor.BOLD + "Boom!");
+                    ArrayList<String> Boom_lore = new ArrayList<>();
+                    Boom_lore.add(ChatColor.DARK_GRAY + "- " + ChatColor.DARK_AQUA + "https://youtu.be/1_8xiW-Fo80");
+                    Boom_meta.setLore(Boom_lore);
+                    Boom.setItemMeta(Boom_meta);
+
+                    ItemStack[] menu_items = {FloorIsLava, Siege, CaptureTheFlag, HungerGames, TntRun, Boom};
                     gui.setContents(menu_items);
                     player.openInventory(gui);
 

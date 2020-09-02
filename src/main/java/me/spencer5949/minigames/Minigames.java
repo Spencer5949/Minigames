@@ -15,6 +15,10 @@ public final class Minigames extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new ClickEvent(), this);
 
+        Config.setup();
+        Config.get().options().copyDefaults(true);
+        Config.save();
+
     }
 
     @Override
