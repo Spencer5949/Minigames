@@ -28,7 +28,7 @@ public class ClickEvent implements Listener {
 
                 case LIME_WOOL:
                     player.closeInventory();
-                    GameCreator.CaptureTheFlag();
+                    GameCreator.CaptureTheFlag(player);
 
                 case IRON_SWORD:
                     player.closeInventory();
