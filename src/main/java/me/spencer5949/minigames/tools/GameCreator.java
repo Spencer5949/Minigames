@@ -11,8 +11,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.persistence.PersistentDataContainer;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class GameCreator implements Listener {
@@ -22,6 +22,7 @@ public class GameCreator implements Listener {
     Integer Siege_Step = 0;
     public static  ItemStack SiegeCreator;
     Integer CaptureTheFlag_Step = 0;
+    public static ItemStack CaptureTheFlagCreator;
     Integer HungerGames_Step = 0;
     Integer TntRun_Step = 0;
     Integer Boom_Step = 0;
@@ -48,14 +49,26 @@ public class GameCreator implements Listener {
         siege_meta.setLore(siege_lore);
         siege.setItemMeta(siege_meta);
         player.getInventory().addItem(siege);
-        player.sendMessage(ChatColor.GOLD + "First to setup team one. Select 7 random spawn points for players");
+        player.sendMessage(ChatColor.GOLD + "First to setup the defenders. Select ");
         SiegeCreator = siege;
 
 
 
     }
 
-    public static void CaptureTheFlag() {
+    public static void CaptureTheFlag(Player player) {
+        ItemStack capturetheflag = new ItemStack(Material.STICK);
+        ItemMeta capturetheflag_meta = capturetheflag.getItemMeta();
+        capturetheflag_meta.setDisplayName("" + ChatColor.RED + ChatColor.BOLD + "Game Creator");
+        ArrayList<String> capturetheflag_lore = new ArrayList<>();
+        capturetheflag_lore.add(ChatColor.AQUA + "- " + ChatColor.GRAY + "Capture The Flag");
+        capturetheflag_meta.setLore(capturetheflag_lore);
+        capturetheflag.setItemMeta(capturetheflag_meta);
+        player.getInventory().addItem(capturetheflag);
+        player.sendMessage(ChatColor.GOLD + "Select the flag block for team 1");
+        CaptureTheFlagCreator = capturetheflag;
+
+
 
     }
 
@@ -84,93 +97,17 @@ public class GameCreator implements Listener {
             }
             if(player.getItemInHand().equals(GameCreator.floorislava)) {
 
-
             }
+
             if(player.getItemInHand().equals(GameCreator.SiegeCreator)) {
 
                 switch(Siege_Step) {
                     case 0:
                         player.sendMessage(ChatColor.GOLD + "First spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 1 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the second position");
                         Siege_Step = 1;
-
-
                         break;
 
                     case 1:
-                        player.sendMessage(ChatColor.GOLD + "Second spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 1 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the third position");
-                        Siege_Step = 2;
-                        break;
-
-                    case 2:
-                        player.sendMessage(ChatColor.GOLD + "Third spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 1 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the fourth position");
-                        Siege_Step = 3;
-                        break;
-                    case 3:
-                        player.sendMessage(ChatColor.GOLD + "Fourth spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 1 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the fifth position");
-                        Siege_Step = 4;
-                        break;
-
-                    case 4:
-                        player.sendMessage(ChatColor.GOLD + "Fifth spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 1 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the sixth position");
-                        Siege_Step = 5;
-                        break;
-
-                    case 5:
-                        player.sendMessage(ChatColor.GOLD + "Sixth spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 1 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the seventh position");
-                        Siege_Step = 6;
-                        break;
-
-                    case 6:
-                        player.sendMessage(ChatColor.GOLD + "Seventh spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 1 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the first position for " + ChatColor.WHITE + ChatColor.BOLD + "Team 2");
-                        Siege_Step = 7;
-                        break;
-
-                    case 7:
-                        player.sendMessage(ChatColor.GOLD + "First spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 2 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the second position");
-                        Siege_Step = 8;
-                        break;
-
-                    case 8:
-                        player.sendMessage(ChatColor.GOLD + "Second spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 2 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the third position");
-                        Siege_Step = 9;
-                        break;
-
-                    case 9:
-                        player.sendMessage(ChatColor.GOLD + "Third spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 2 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the fourth position");
-                        Siege_Step = 10;
-                        break;
-
-                    case 10:
-                        player.sendMessage(ChatColor.GOLD + "Fourth spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 2 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the fifth position");
-                        Siege_Step = 11;
-                        break;
-
-                    case 11:
-                        player.sendMessage(ChatColor.GOLD + "Fifth spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 2 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the sixth position");
-                        Siege_Step = 12;
-                        break;
-
-                    case 12:
-                        player.sendMessage(ChatColor.GOLD + "Sixth spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 2 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the seventh position");
-                        Siege_Step = 13;
-                        break;
-
-                    case 13:
-                        player.sendMessage(ChatColor.GOLD + "Seventh spawn point for " + ChatColor.WHITE + ChatColor.BOLD + "Team 2 " + ChatColor.GOLD + "set at " + ChatColor.WHITE + ChatColor.BOLD + X + " " + Y + " " + Z + " " + ChatColor.GOLD + "now right click the hostage spawn location");
-                        Siege_Step = 14;
-                        break;
-
-                    case 14:
-                        
-
-
-
-
-
-
-
-
-
 
 
 
@@ -178,6 +115,16 @@ public class GameCreator implements Listener {
 
 
             }
+
+            if(player.getItemInHand().equals(GameCreator.CaptureTheFlagCreator)) {
+
+                switch(CaptureTheFlag_Step) {
+
+
+                }
+            }
+
+
 
         }
     }

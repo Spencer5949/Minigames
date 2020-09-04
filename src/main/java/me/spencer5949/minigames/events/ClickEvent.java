@@ -27,10 +27,16 @@ public class ClickEvent implements Listener {
                     GameCreator.Siege(player);
 
                 case LIME_WOOL:
+                    player.closeInventory();
+                    GameCreator.CaptureTheFlag();
 
                 case IRON_SWORD:
+                    player.closeInventory();
+                    GameCreator.HungerGames();
 
                 case TNT:
+                    player.closeInventory();
+                    GameCreator.TntRun();
 
 
             }

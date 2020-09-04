@@ -5,6 +5,8 @@ import me.spencer5949.minigames.events.ClickEvent;
 import me.spencer5949.minigames.tools.GameCreator;
 import org.bukkit.plugin.java.JavaPlugin;
 
+
+
 public final class Minigames extends JavaPlugin {
 
     @Override
